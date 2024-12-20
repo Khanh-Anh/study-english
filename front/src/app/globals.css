@@ -13,3 +13,10 @@
     --foreground: #ededed;
   }
 }
+
+.slick-arrow.slick-next::before{
+  content: '' !important;
+}
+.slick-arrow.slick-prev::before{
+  content: '' !important;
+}

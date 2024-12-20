@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { useCallback, useEffect, useMemo } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import { modalSate } from "../../../../stores/modelState";
+import { modalSate } from "../../../stores/modelState";
 
 export default function ToastLayout() {
   const notify = modalSate((state) => state.notify);

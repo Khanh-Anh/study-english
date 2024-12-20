@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useLibraryOfYourForm } from "./validate";
 import ControlledInput from "@/components/atoms/input";
 import SearchIcon from '@mui/icons-material/Search';
+import SearchBar from "@/components/atoms/search-bar";
 
 function a11yProps(index: number) {
     return {
@@ -36,22 +37,11 @@ export default function LibraryOfYour() {
             </Box>
             <TabPanel value={value} index={0}>
                 <Box sx={{ display: 'flex', flexWrap: 'nowrap', flexDirection: "row", justifyContent: "space-between", gap: 2, marginBottom: '20px' }}>
-                    <ControlledSelect options={[{
-                        label: "Học phần",
-                        value: "1"
-                    }, {
-                        label: "Học phần 2",
-                        value: "2"
-                    }]} control={control} formField="search" className="w-[200px]" />
-                    <ControlledInput control={control} formField="search" className="w-[500px]" InputProps={{
-                        endAdornment: <SearchIcon />
-                    }} />
+                  <SearchBar />
                 </Box>
-                <Box sx={{ display: 'flex', flexWrap: 'nowrap', flexDirection: "column", gap: 2 }}>
+                <Box sx={{ margin: "10px 0px", display: "grid", gridTemplateColumns: "1fr", gap: "40px"}}>
                     {dataList.map((item, index) => (
-                        <Box key={index}>
-                            <RecipeReviewCard />
-                        </Box>
+                        <RecipeReviewCard key={index}/>
                     ))}
                 </Box>
             </TabPanel>

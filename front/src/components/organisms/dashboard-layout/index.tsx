@@ -7,6 +7,7 @@ import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import type { Router } from "@toolpad/core";
 import { useRouter } from "next/navigation";
 import { NAVIGATION } from "@/constants";
+import Image from "next/image";
 
 
 const theme = createTheme({
@@ -40,19 +41,16 @@ export default function DashboardLayoutBasic(props: {
             searchParams: new URLSearchParams(),
             navigate: (path) => {
                 setPathname(String(path));
+                router.push(pathname);
             },
         };
     }, [pathname]);
-
-    React.useEffect(() => {
-        router.push(pathname);
-    }, [pathname, router]);
-
+    
     const Window = window !== undefined ? window() : undefined;
 
     return (
         <AppProvider navigation={NAVIGATION} theme={theme} router={routerMui} window={Window} branding={{
-            logo: <img src="https://img.freepik.com/free-vector/flat-design-creative-nerd-logo-template_23-2149194992.jpg" alt="Study" />,
+            logo: <Image src="https://img.freepik.com/free-vector/flat-design-creative-nerd-logo-template_23-2149194992.jpg" alt="Study" width={70} height={70} />,
             title: 'Study',
         }}>
             <DashboardLayout >
